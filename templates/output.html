@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Yield Prediction</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background-image: url('https://okcredit-blog-images-prod.storage.googleapis.com/2020/10/shutterstock_1484680373.jpg');
+            background-size: cover; /* This makes the image cover the entire background */
+            background-repeat: no-repeat; /* This prevents the image from repeating */
+            background-position: center; /* This centers the image */
+        }
+        .container {
+            width: 50%;
+            margin-left:0;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            
+        }
+  
+    </style>
+</head>
+<body >
+    <div class="container">
+        <h2>Crop Yield Prediction</h2>
+        <h3>Crop           : {{setd["Crop"]}} </h3>
+        <h3>Season         : {{setd["Season"]}} </h3>
+        <h3>State          : {{setd["State"]}} </h3>
+        <h3>Soil Condition : {{setd["Soil_Condition"]}} </h3>
+        <h3>Annual_Rainfall (mm) : {{setd["Annual_Rainfall"]}} </h3>
+        <h3>Fertilizer (Kg/ha) : {{setd["Fertilizer"]}} </h3>
+        <h3>Pesticide (Kg/ha) : {{setd["Pesticide"]}} </h3>
+        <h3>Area (ha)         : {{setd["Area"]}} </h3>
+        {% if prediction is not none %}
+            <div class="output">
+                <h3>Predicted Yield: {{ prediction|round(2) }} Kg/ha</h3>
+                <h3>Production You Will Get : {{ product|round(2) }} Kg</h3>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -22,7 +22,7 @@ def predict():
     # Get form data
     data = request.form.to_dict()
     # Extract Area separately
-    #area = float(data.pop("Area", 1))  # Default area to 1 if missing
+    area = float(data['Area'])  # Default area to 1 if missing
 
     # Convert input data to DataFrame
     features = pd.DataFrame([data])
@@ -31,9 +31,10 @@ def predict():
     yield_pred = model.predict(scaler.transform(features))[0]
 
     # Calculate production
-    #production = yield_pred * area
+    production = yield_pred * area
 
-    return render_template("index.html", prediction=yield_pred, message=None)
+    return render_template("output.html", prediction=yield_pred,product=production, setd=data, message=None)
+
     
     
 if __name__ == '__main__':
