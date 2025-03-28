@@ -32,12 +32,12 @@
         <h3>State          : {{setd["State"]}} </h3>
         <h3>Soil Condition : {{setd["Soil_Condition"]}} </h3>
         <h3>Annual_Rainfall (mm) : {{setd["Annual_Rainfall"]}} </h3>
-        <h3>Fertilizer (Kg/ha) : {{setd["Fertilizer"]}} </h3>
-        <h3>Pesticide (Kg/ha) : {{setd["Pesticide"]}} </h3>
-        <h3>Area (ha)         : {{setd["Area"]}} </h3>
+        <h3>Fertilizer (g) : {{setd["Fertilizer"]}} </h3>
+        <h3>Pesticide (g) : {{setd["Pesticide"]}} </h3>
+        <h3>Area (m^2)         : {{setd["Area"]}} </h3>
         {% if prediction is not none %}
             <div class="output">
-                <h3>Predicted Yield: {{ prediction|round(2) }} Kg/ha</h3>
+                <h3>Predicted Yield: {{ prediction|round(2) }} Kg/m^2</h3>
                 <h3>Production You Will Get : {{ product|round(2) }} Kg</h3>
             </div>
         {% endif %}

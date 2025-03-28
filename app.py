@@ -22,6 +22,8 @@ def predict():
     # Get form data
     data = request.form.to_dict()
     # Extract Area separately
+    data['Fertilizer'] = float(data['Fertilizer']) * 1000 * float(data['Area'])  # Convert to kg/m^2
+    data['Pesticide'] = float(data['Pesticide']) * 1000 * float(data['Area'])  # Convert to kg/m^2
     area = float(data['Area'])  # Default area to 1 if missing
 
     # Convert input data to DataFrame
